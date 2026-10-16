@@ -1,0 +1,238 @@
+{
+  "students": [
+    {
+      "id": "STU-2026-001",
+      "studentRollNo": "1RV22CS045",
+      "name": "Arjun Nayak",
+      "institutionId": "INST-001",
+      "institutionName": "All Recognized Colleges & Universities (AISHE Accredited)",
+      "password": "password123",
+      "gender": "Male",
+      "category": "SC",
+      "religion": "Hindu",
+      "state": "Karnataka",
+      "educationLevel": "Undergraduate (Degree / B.Tech / MBBS / B.Sc / B.Com / BA)",
+      "stream": "Engineering",
+      "percentage": 78.5,
+      "familyIncome": 180000,
+      "isRural": true,
+      "isSingleGirlChild": false,
+      "isPwd": false,
+      "isWardOfDefense": false,
+      "documents": {
+        "aadhaar": {
+          "number": "XXXXXXXX8921",
+          "verified": true,
+          "docName": "Aadhaar_Card_Verified.pdf",
+          "issuedBy": "UIDAI"
+        },
+        "income": {
+          "certificateNo": "RD00389281729",
+          "annualIncome": 180000,
+          "issuedBy": "Tahsildar, Bengaluru South",
+          "verified": true,
+          "docName": "Income_Certificate_RD003.pdf"
+        },
+        "caste": {
+          "certificateNo": "RD00472910384",
+          "category": "SC",
+          "issuedBy": "Revenue Department Karnataka",
+          "verified": true,
+          "docName": "Caste_Certificate_SC.pdf"
+        },
+        "photo": {
+          "verified": true,
+          "docName": "Student_Passport_Photo.jpg",
+          "previewUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80"
+        },
+        "biometric": {
+          "verified": true,
+          "authMethod": "UIDAI Face-RD / Biometric e-KYC",
+          "verifiedAt": "2026-10-15T10:30:00Z"
+        }
+      }
+    },
+    {
+      "id": "STU-2026-002",
+      "studentRollNo": "DTU-2024-EC108",
+      "name": "Priyanka Sharma",
+      "institutionId": "INST-002",
+      "institutionName": "All AICTE Approved Technical & Engineering Institutes",
+      "password": "password123",
+      "gender": "Female",
+      "category": "General",
+      "religion": "Hindu",
+      "state": "Delhi",
+      "educationLevel": "Undergraduate (Degree / B.Tech / MBBS / B.Sc / B.Com / BA)",
+      "stream": "Engineering",
+      "percentage": 86.4,
+      "familyIncome": 320000,
+      "isRural": false,
+      "isSingleGirlChild": true,
+      "isPwd": false,
+      "isWardOfDefense": false,
+      "documents": {
+        "aadhaar": {
+          "number": "XXXXXXXX4512",
+          "verified": true,
+          "docName": "Aadhaar_Priyanka_UIDAI.pdf",
+          "issuedBy": "UIDAI"
+        },
+        "income": {
+          "certificateNo": "INC-DEL-2026-8812",
+          "annualIncome": 320000,
+          "issuedBy": "SDM Rohini Delhi",
+          "verified": true,
+          "docName": "Income_Cert_320k.pdf"
+        },
+        "caste": {
+          "certificateNo": "N/A - General",
+          "category": "General",
+          "issuedBy": "Competent Authority",
+          "verified": true,
+          "docName": "Self_Declaration_Gen.pdf"
+        },
+        "photo": {
+          "verified": true,
+          "docName": "Priyanka_Photo.jpg",
+          "previewUrl": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80"
+        },
+        "biometric": {
+          "verified": true,
+          "authMethod": "UIDAI Biometric / Iris e-KYC",
+          "verifiedAt": "2026-10-14T09:15:00Z"
+        }
+      }
+    },
+    {
+      "id": "STU-2026-003",
+      "studentRollNo": "KV-2025-10B-22",
+      "name": "Kavita R",
+      "institutionId": "INST-004",
+      "institutionName": "All Recognized Secondary & Senior Secondary Schools (CBSE / State Boards)",
+      "password": "password123",
+      "gender": "Female",
+      "category": "OBC",
+      "religion": "Hindu",
+      "state": "Karnataka",
+      "educationLevel": "Class 10 (Secondary / Pre-Matric)",
+      "stream": "Any",
+      "percentage": 82,
+      "familyIncome": 140000,
+      "isRural": true,
+      "isSingleGirlChild": false,
+      "isPwd": false,
+      "isWardOfDefense": false,
+      "documents": {
+        "aadhaar": {
+          "number": "XXXXXXXX6678",
+          "verified": true,
+          "docName": "Aadhaar_Kavita.pdf",
+          "issuedBy": "UIDAI"
+        },
+        "income": {
+          "certificateNo": "RD0099882211",
+          "annualIncome": 140000,
+          "issuedBy": "Tahsildar Bengaluru",
+          "verified": true,
+          "docName": "Income_Cert_140k.pdf"
+        },
+        "caste": {
+          "certificateNo": "RD0044119933",
+          "category": "OBC",
+          "issuedBy": "Revenue Dept",
+          "verified": true,
+          "docName": "Caste_OBC.pdf"
+        },
+        "photo": {
+          "verified": true,
+          "docName": "Kavita_Photo.jpg",
+          "previewUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80"
+        },
+        "biometric": {
+          "verified": true,
+          "authMethod": "Aadhaar FaceRD Verified",
+          "verifiedAt": "2026-10-16T08:00:00Z"
+        }
+      }
+    },
+    {
+      "id": "STU-MVAXNX9P",
+      "studentRollNo": "JITD",
+      "name": "Student (JITD)",
+      "institutionId": "INST-001",
+      "institutionName": "All Recognized Colleges & Universities (AISHE Accredited)",
+      "password": "jitd@123",
+      "gender": "All",
+      "category": "General",
+      "religion": "Hindu",
+      "state": "All India",
+      "educationLevel": "Undergraduate (Degree / B.Tech / MBBS / B.Sc / B.Com / BA)",
+      "stream": "Engineering",
+      "percentage": 75,
+      "familyIncome": 200000,
+      "isRural": false,
+      "isSingleGirlChild": false,
+      "isPwd": false,
+      "isWardOfDefense": false,
+      "documents": {
+        "aadhaar": {
+          "number": "XXXXXXXX9988",
+          "verified": true,
+          "docName": "Aadhaar_Document.pdf",
+          "issuedBy": "UIDAI"
+        },
+        "income": {
+          "certificateNo": "RD-DIGITAL-PENDING",
+          "annualIncome": 200000,
+          "issuedBy": "Revenue Department",
+          "verified": true,
+          "docName": "Income_Certificate.pdf"
+        },
+        "caste": {
+          "certificateNo": "GEN-DECLARATION",
+          "category": "General",
+          "issuedBy": "Competent Authority",
+          "verified": true,
+          "docName": "Caste_Certificate.pdf"
+        },
+        "photo": {
+          "verified": true,
+          "docName": "Student_Photo.jpg",
+          "previewUrl": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80"
+        },
+        "biometric": {
+          "verified": true,
+          "authMethod": "Aadhaar FaceRD / Biometric e-KYC",
+          "verifiedAt": "2026-10-16T12:17:47.821Z"
+        }
+      }
+    }
+  ],
+  "collegeOfficers": [
+    {
+      "id": "OFFICER-001",
+      "institutionId": "INST-001",
+      "officerName": "Prof. S. R. Murthy",
+      "designation": "Scholarship Nodal Officer & Dean Student Welfare",
+      "institutionName": "All Recognized Colleges & Universities (AISHE Accredited)",
+      "password": "admin123"
+    },
+    {
+      "id": "OFFICER-002",
+      "institutionId": "INST-002",
+      "officerName": "Dr. Rajeshwar Sharma",
+      "designation": "Registrar & Nodal Officer",
+      "institutionName": "All AICTE Approved Technical & Engineering Institutes",
+      "password": "admin123"
+    },
+    {
+      "id": "OFFICER-004",
+      "institutionId": "INST-004",
+      "officerName": "Mr. K. V. Ramanathan",
+      "designation": "Principal & Nodal Officer",
+      "institutionName": "All Recognized Secondary & Senior Secondary Schools (CBSE / State Boards)",
+      "password": "admin123"
+    }
+  ]
+}

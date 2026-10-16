@@ -1,0 +1,146 @@
+[
+  {
+    "id": "APP-2026-5391",
+    "schemeId": "SCH-HDFC-001",
+    "schemeName": "HDFC Badhte Kadam Scholarship",
+    "studentId": "STU-2026-001",
+    "studentName": "Arjun Nayak",
+    "studentRollNo": "1RV22CS045",
+    "institutionId": "INST-001",
+    "institutionName": "All Recognized Colleges & Universities (AISHE Accredited)",
+    "course": "B.Tech Computer Science",
+    "category": "General",
+    "familyIncome": 180000,
+    "percentage": 78.5,
+    "awardAmount": "Up to ₹75,000 per annum",
+    "appliedAt": "2026-10-16T11:07:38.178Z",
+    "status": "Pending College Verification",
+    "documents": {
+      "aadhaar": {
+        "verified": true,
+        "docNo": "XXXXXXXX8921",
+        "name": "Aadhaar_Card_Verified.pdf"
+      },
+      "caste": {
+        "verified": true,
+        "docNo": "RD-VERIFIED",
+        "name": "Caste_Certificate.pdf"
+      },
+      "income": {
+        "verified": true,
+        "docNo": "RD-INCOME-VERIFIED",
+        "name": "Income_Certificate.pdf"
+      },
+      "photo": {
+        "verified": true,
+        "name": "Passport_Photo.jpg",
+        "previewUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80"
+      },
+      "biometric": {
+        "verified": true,
+        "method": "UIDAI Face-RD / Biometric e-KYC"
+      }
+    },
+    "collegeVerification": {
+      "verifiedBy": null,
+      "verifiedAt": null,
+      "remarks": "Application under scrutiny by College Nodal Officer"
+    }
+  },
+  {
+    "id": "APP-2026-9001",
+    "schemeId": "SCH-NSP-002",
+    "schemeName": "Post-Matric Scholarship for SC Students",
+    "studentId": "STU-2026-001",
+    "studentName": "Arjun Nayak",
+    "studentRollNo": "1RV22CS045",
+    "institutionId": "INST-001",
+    "institutionName": "All Recognized Colleges & Universities (AISHE Accredited)",
+    "course": "B.Tech Computer Science (3rd Year)",
+    "category": "SC",
+    "familyIncome": 180000,
+    "percentage": 78.5,
+    "awardAmount": "Full Tuition Fee + up to ₹13,500/year allowance",
+    "appliedAt": "2026-10-16T11:20:00Z",
+    "status": "Verified & Approved by College",
+    "documents": {
+      "aadhaar": {
+        "verified": true,
+        "docNo": "XXXXXXXX8921",
+        "name": "Aadhaar_Card_Verified.pdf"
+      },
+      "caste": {
+        "verified": true,
+        "docNo": "RD00472910384",
+        "name": "Caste_Certificate_SC.pdf"
+      },
+      "income": {
+        "verified": true,
+        "docNo": "RD00389281729 (₹1.80L)",
+        "name": "Income_Certificate_RD003.pdf"
+      },
+      "photo": {
+        "verified": true,
+        "name": "Passport_Photo.jpg",
+        "previewUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80"
+      },
+      "biometric": {
+        "verified": true,
+        "method": "UIDAI Face-RD / Biometric e-KYC"
+      }
+    },
+    "collegeVerification": {
+      "verifiedBy": "Prof. S. R. Murthy",
+      "verifiedAt": "2026-10-16T11:32:46.786Z",
+      "remarks": "Original caste and income certificates verified."
+    }
+  },
+  {
+    "id": "APP-2026-9002",
+    "schemeId": "SCH-KAR-001",
+    "schemeName": "Karnataka State Scholarship Portal (SSP) Post-Matric Scholarship",
+    "studentId": "STU-2026-001",
+    "studentName": "Arjun Nayak",
+    "studentRollNo": "1RV22CS045",
+    "institutionId": "INST-001",
+    "institutionName": "All Recognized Colleges & Universities (AISHE Accredited)",
+    "course": "B.Tech Computer Science (3rd Year)",
+    "category": "SC",
+    "familyIncome": 180000,
+    "percentage": 78.5,
+    "awardAmount": "Full College Tuition Fee Reimbursement + Hostel Allowance",
+    "appliedAt": "2026-10-16T12:05:00Z",
+    "status": "Verified & Approved by College",
+    "documents": {
+      "aadhaar": {
+        "verified": true,
+        "docNo": "XXXXXXXX8921",
+        "name": "Aadhaar_Card_Verified.pdf"
+      },
+      "caste": {
+        "verified": true,
+        "docNo": "RD00472910384",
+        "name": "Caste_Certificate_SC.pdf"
+      },
+      "income": {
+        "verified": true,
+        "docNo": "RD00389281729",
+        "name": "Income_Certificate_RD003.pdf"
+      },
+      "photo": {
+        "verified": true,
+        "name": "Passport_Photo.jpg",
+        "previewUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80"
+      },
+      "biometric": {
+        "verified": true,
+        "method": "UIDAI Face-RD / Biometric e-KYC"
+      }
+    },
+    "collegeVerification": {
+      "verifiedBy": "Prof. S. R. Murthy",
+      "verifiedAt": "2026-10-16T14:10:00Z",
+      "remarks": "USN 1RV22CS045 bonafide student status confirmed. Caste & income certificate verified via Karnataka RD barcode. Recommended for full reimbursement."
+    }
+  }
+]

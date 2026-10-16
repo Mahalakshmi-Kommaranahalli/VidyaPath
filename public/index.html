@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VidyaPath - Centralized National Scholarship & Scheme Matchmaker</title>
+  <meta name="description" content="Universal National Scholarship & Government Scheme Matchmaker for Students of All Recognized Colleges, Universities, Polytechnics & Schools Across India.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Top Bar with National Initiative Header and Language Selector -->
+  <header class="top-bar" role="banner">
+    <div class="container top-bar-inner">
+      <div style="display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap;">
+        <span style="font-weight: 800; color: var(--primary);">🇮🇳 National Education Access Initiative</span>
+        <span style="color: var(--accent-gold); font-weight: 700; font-size: 0.82rem;">| Zero Unclaimed Scholarships</span>
+        <span style="color: var(--text-muted); font-size: 0.8rem;">• All India Educational Coverage</span>
+      </div>
+
+      <div class="accessibility-controls">
+        <label for="langSelect" style="font-size: 0.82rem; font-weight: 600; color: var(--text-muted);">Language:</label>
+        <select id="langSelect" class="lang-select" aria-label="Select Language">
+          <option value="en">English</option>
+          <option value="hi">हिन्दी (Hindi)</option>
+          <option value="kn">ಕನ್ನಡ (Kannada)</option>
+          <option value="ta">தமிழ் (Tamil)</option>
+          <option value="te">తెలుగు (Telugu)</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Navigation -->
+  <nav class="main-nav" role="navigation">
+    <div class="container nav-inner">
+      <a href="/" class="brand" aria-label="VidyaPath Homepage">
+        <div class="brand-icon">🎓</div>
+        <div>
+          <div class="brand-title">VidyaPath</div>
+          <div class="brand-tagline">National Scholarship & Government Scheme Matchmaker</div>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <a href="#matchForm" class="nav-link active">Matchmaker</a>
+        <a href="#departmentsSection" class="nav-link">Departments</a>
+        <a href="#announcementsSection" class="nav-link">Official Notices</a>
+        <a href="#resultsSection" class="nav-link" id="navMatchesLink">My Matches</a>
+        <a href="/college-portal.html" class="nav-link" style="color: var(--secondary); font-weight: 800;">🏛️ Institutional Desk</a>
+        <a href="/admin.html" class="nav-link">⚙️ Admin</a>
+        <button type="button" id="themeToggleBtn" class="btn btn-secondary" style="font-size: 0.82rem; padding: 0.35rem 0.75rem;">
+          🌙 Dark Mode
+        </button>
+        <div id="userAuthBadge">
+          <a href="/login.html" class="btn btn-primary" style="font-size: 0.85rem; padding: 0.45rem 0.85rem; background: var(--secondary); border-color: var(--secondary);">
+            🔐 Login (Student/Institutional)
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section with Search Bar & Search Button -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-badge">
+        <span>✨ All Schemes from Class 10th to Post-Doctoral & Overseas Studies</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span data-i18n="heroTitle">Find Every Scholarship You Are Eligible For</span><br>
+        <span class="hero-highlight" style="background: linear-gradient(135deg, #0ea5e9, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">In Just 30 Seconds</span>
+      </h1>
+
+      <p class="hero-subtitle" data-i18n="heroSubtitle">
+        Single simplified demographic form. High-precision matching algorithm. Instant eligibility across central government ministries, state departments, and corporate CSR trusts.
+      </p>
+
+      <!-- Universal Coverage Banner (Works for All Colleges and Schools) -->
+      <div class="universal-notice-banner" role="status">
+        <span class="gold-badge">Universal Nationwide Portal</span>
+        <span>🌐 Works for Students of ALL Recognized Colleges, Universities, Polytechnics & Schools in India</span>
+      </div>
+
+      <!-- Instant Search Bar with Search Button -->
+      <div class="hero-search-wrapper" role="search" style="margin-top: 1rem;">
+        <input type="text" id="globalSearchInput" class="hero-search-input" placeholder="Search any scholarship by scheme name, stage (10th/12th/Degree/PG), ministry, or trust..." aria-label="Search all scholarships">
+        <button type="button" id="globalSearchBtn" class="btn-search" style="background: var(--secondary); border-color: var(--secondary);">
+          <span>🔍</span> Search Scholarships
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Respected Indian Education & Government Departments Seals & Logos Ribbon -->
+  <section class="container departments-section" id="departmentsSection" aria-labelledby="deptHeading">
+    <div class="departments-header">
+      <div class="departments-subtitle">Government of India & Accrediting Authorities</div>
+      <h2 id="deptHeading" class="departments-title">Participating Indian Education & Welfare Departments</h2>
+    </div>
+
+    <div class="departments-grid">
+      <!-- 1. Ministry of Education (MoE) -->
+      <div class="department-card">
+        <div class="dept-emblem-wrap">
+          <svg class="dept-emblem-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Ministry of Education Seal">
+            <circle cx="50" cy="50" r="46" stroke="#f59e0b" stroke-width="3" fill="#0f2744"/>
+            <circle cx="50" cy="50" r="38" stroke="#ffffff" stroke-width="1" stroke-dasharray="2 2"/>
+            <path d="M50 22 L55 35 L68 35 L58 43 L62 56 L50 48 L38 56 L42 43 L32 35 L45 35 Z" fill="#f59e0b"/>
+            <circle cx="50" cy="65" r="9" stroke="#38bdf8" stroke-width="2"/>
+            <path d="M43 78 Q50 72 57 78" stroke="#ffffff" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="dept-info">
+          <span class="dept-hindi">शिक्षा मंत्रालय</span>
+          <span class="dept-english">Ministry of Education (MoE)</span>
+          <span class="dept-motto">Department of Higher & School Education</span>
+        </div>
+      </div>
+
+      <!-- 2. National Scholarship Portal (NSP / DBT Bharat) -->
+      <div class="department-card">
+        <div class="dept-emblem-wrap">
+          <svg class="dept-emblem-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="National Scholarship Portal Seal">
+            <circle cx="50" cy="50" r="46" stroke="#0ea5e9" stroke-width="3" fill="#0f2744"/>
+            <circle cx="50" cy="50" r="36" stroke="#f59e0b" stroke-width="1.5"/>
+            <path d="M50 26 L72 36 L50 46 L28 36 Z" fill="#38bdf8"/>
+            <path d="M72 36 V48" stroke="#f59e0b" stroke-width="2"/>
+            <text x="50" y="68" font-size="20" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="Inter, sans-serif">₹</text>
+            <path d="M35 72 A 18 18 0 0 0 65 72" stroke="#f59e0b" stroke-width="2" fill="none"/>
+          </svg>
+        </div>
+        <div class="dept-info">
+          <span class="dept-hindi">राष्ट्रीय छात्रवृत्ति पोर्टल</span>
+          <span class="dept-english">NSP - DBT Bharat</span>
+          <span class="dept-motto">Direct Benefit Transfer Gateway</span>
+        </div>
+      </div>
+
+      <!-- 3. University Grants Commission (UGC) -->
+      <div class="department-card">
+        <div class="dept-emblem-wrap">
+          <svg class="dept-emblem-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="UGC Seal">
+            <circle cx="50" cy="50" r="46" stroke="#f59e0b" stroke-width="3" fill="#0f2744"/>
+            <path d="M50 20 L53 28 L61 28 L55 33 L57 41 L50 36 L43 41 L45 33 L39 28 L47 28 Z" fill="#f59e0b"/>
+            <!-- Open Book -->
+            <path d="M30 52 Q50 48 50 58 Q50 48 70 52 V68 Q50 64 50 74 Q50 64 30 68 Z" fill="#ffffff"/>
+            <circle cx="50" cy="50" r="6" fill="#38bdf8"/>
+          </svg>
+        </div>
+        <div class="dept-info">
+          <span class="dept-hindi">विश्वविद्यालय अनुदान आयोग</span>
+          <span class="dept-english">UGC - Higher Education</span>
+          <span class="dept-motto">"ज्ञान-विज्ञान विमुक्तये"</span>
+        </div>
+      </div>
+
+      <!-- 4. All India Council for Technical Education (AICTE) -->
+      <div class="department-card">
+        <div class="dept-emblem-wrap">
+          <svg class="dept-emblem-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="AICTE Seal">
+            <circle cx="50" cy="50" r="46" stroke="#0ea5e9" stroke-width="3" fill="#0f2744"/>
+            <!-- Technical Gear Wheel -->
+            <circle cx="50" cy="50" r="22" stroke="#f59e0b" stroke-width="4" stroke-dasharray="6 3"/>
+            <!-- Torch / Jyoti Flame -->
+            <path d="M50 30 Q56 40 50 48 Q44 40 50 30 Z" fill="#ef4444"/>
+            <path d="M47 48 H53 V68 H47 Z" fill="#38bdf8"/>
+          </svg>
+        </div>
+        <div class="dept-info">
+          <span class="dept-hindi">अखिल भारतीय तकनीकी शिक्षा परिषद</span>
+          <span class="dept-english">AICTE - Technical Education</span>
+          <span class="dept-motto">"योगः कर्मसु कौशलम्"</span>
+        </div>
+      </div>
+
+      <!-- 5. Central Board of Secondary Education (CBSE) -->
+      <div class="department-card">
+        <div class="dept-emblem-wrap">
+          <svg class="dept-emblem-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="CBSE Seal">
+            <circle cx="50" cy="50" r="46" stroke="#f59e0b" stroke-width="3" fill="#0f2744"/>
+            <!-- Traditional Lamp & Flame -->
+            <ellipse cx="50" cy="65" rx="18" ry="7" fill="#f59e0b"/>
+            <path d="M50 36 Q58 48 50 58 Q42 48 50 36 Z" fill="#f59e0b"/>
+            <circle cx="50" cy="48" r="4" fill="#ffffff"/>
+            <!-- Rays -->
+            <line x1="50" y1="20" x2="50" y2="28" stroke="#38bdf8" stroke-width="2"/>
+            <line x1="32" y1="26" x2="38" y2="32" stroke="#38bdf8" stroke-width="2"/>
+            <line x1="68" y1="26" x2="62" y2="32" stroke="#38bdf8" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="dept-info">
+          <span class="dept-hindi">केन्द्रीय माध्यमिक शिक्षा बोर्ड</span>
+          <span class="dept-english">CBSE - School Education</span>
+          <span class="dept-motto">"असतो मा सद्गमय"</span>
+        </div>
+      </div>
+
+      <!-- 6. Ministry of Social Justice & Empowerment (MSJE) -->
+      <div class="department-card">
+        <div class="dept-emblem-wrap">
+          <svg class="dept-emblem-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="MSJE Seal">
+            <circle cx="50" cy="50" r="46" stroke="#0ea5e9" stroke-width="3" fill="#0f2744"/>
+            <!-- Balance Scales of Justice -->
+            <line x1="50" y1="26" x2="50" y2="72" stroke="#f59e0b" stroke-width="3"/>
+            <line x1="30" y1="36" x2="70" y2="36" stroke="#ffffff" stroke-width="2"/>
+            <path d="M22 52 L38 52 L30 38 Z" stroke="#38bdf8" stroke-width="1.5" fill="none"/>
+            <path d="M62 52 L78 52 L70 38 Z" stroke="#38bdf8" stroke-width="1.5" fill="none"/>
+            <circle cx="50" cy="26" r="4" fill="#f59e0b"/>
+          </svg>
+        </div>
+        <div class="dept-info">
+          <span class="dept-hindi">सामाजिक न्याय और अधिकारिता</span>
+          <span class="dept-english">MSJE - Social Justice</span>
+          <span class="dept-motto">SC & EBC Welfare Schemes</span>
+        </div>
+      </div>
+
+      <!-- 7. Ministry of Tribal Affairs (MoTA) -->
+      <div class="department-card">
+        <div class="dept-emblem-wrap">
+          <svg class="dept-emblem-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Ministry of Tribal Affairs Seal">
+            <circle cx="50" cy="50" r="46" stroke="#f59e0b" stroke-width="3" fill="#0f2744"/>
+            <!-- Sun Rays & Tribal Shield -->
+            <circle cx="50" cy="50" r="14" fill="#f59e0b"/>
+            <circle cx="50" cy="50" r="8" fill="#0f2744"/>
+            <path d="M34 68 Q50 60 66 68 V76 Q50 82 34 76 Z" fill="#38bdf8"/>
+            <line x1="50" y1="20" x2="50" y2="30" stroke="#f59e0b" stroke-width="2"/>
+            <line x1="28" y1="50" x2="34" y2="50" stroke="#f59e0b" stroke-width="2"/>
+            <line x1="66" y1="50" x2="72" y2="50" stroke="#f59e0b" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="dept-info">
+          <span class="dept-hindi">जनजातीय कार्य मंत्रालय</span>
+          <span class="dept-english">Ministry of Tribal Affairs</span>
+          <span class="dept-motto">ST Fellowships & Higher Aid</span>
+        </div>
+      </div>
+
+      <!-- 8. Ministry of Minority Affairs (MoMA) -->
+      <div class="department-card">
+        <div class="dept-emblem-wrap">
+          <svg class="dept-emblem-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Ministry of Minority Affairs Seal">
+            <circle cx="50" cy="50" r="46" stroke="#0ea5e9" stroke-width="3" fill="#0f2744"/>
+            <!-- Harmony Circle & Light -->
+            <circle cx="50" cy="50" r="20" stroke="#f59e0b" stroke-width="2"/>
+            <path d="M42 38 Q56 42 54 58 Q40 54 42 38 Z" fill="#38bdf8"/>
+            <polygon points="62,36 64,41 69,41 65,44 66,49 62,46 58,49 59,44 55,41 60,41" fill="#f59e0b"/>
+            <path d="M35 72 Q50 66 65 72" stroke="#ffffff" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="dept-info">
+          <span class="dept-hindi">अल्पसंख्यक कार्य मंत्रालय</span>
+          <span class="dept-english">Ministry of Minority Affairs</span>
+          <span class="dept-motto">Post-Matric & Merit-cum-Means</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="container" id="mainContent">
+
+    <!-- Live Official Announcements & Gazette Bulletins Section -->
+    <section class="announcements-container" id="announcementsSection" aria-labelledby="announcementsHeading">
+      <div class="announcements-header">
+        <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <h2 id="announcementsHeading" class="announcements-title">
+            <span>📢</span> Official Announcements & Gazette Circulars
+          </h2>
+          <span class="live-beacon">
+            <span class="beacon-dot"></span> LIVE OFFICIAL NOTICES
+          </span>
+        </div>
+        <span style="font-size: 0.82rem; color: var(--text-muted); font-weight: 600;">
+          Verified Circulars from MoE, NSP, AICTE, UGC, CBSE & Ministries
+        </span>
+      </div>
+
+      <div class="announcements-grid" id="announcementsGrid">
+        <!-- Injected dynamically via API -->
+      </div>
+    </section>
+
+    <!-- Unified Single Profile Form -->
+    <section class="form-card" aria-labelledby="formTitle">
+      <div class="form-header">
+        <h2 id="formTitle" class="form-header-title">
+          <span>📋</span> Student Demographic & Academic Profile
+        </h2>
+        <span style="font-size: 0.85rem; color: var(--text-muted);">Step 1: Fill out this single unified form</span>
+      </div>
+
+      <form id="matchForm">
+        <div class="form-grid">
+          <!-- Student Full Name (Clean Input, No Dummy Data) -->
+          <div class="form-group">
+            <label for="studentName" class="form-label">Student Full Name</label>
+            <input type="text" id="studentName" class="form-control" placeholder="Enter student full name (Optional)" value="">
+          </div>
+
+          <!-- Respective School or College (Universal for All Institutions Across India) -->
+          <div class="form-group">
+            <label for="institutionCategory" class="form-label">
+              <span>Your School / College / Institution</span>
+              <span class="form-label-hint">All AISHE & UDISE+ Recognized</span>
+            </label>
+            <select id="institutionCategory" class="form-control">
+              <option value="All Recognized Colleges & Universities (AISHE Accredited)">All Recognized Colleges & Universities (AISHE Accredited)</option>
+              <option value="All AICTE Approved Technical & Engineering Institutes">All AICTE Approved Technical & Engineering Institutes</option>
+              <option value="All Government & Aided Degree Colleges (UGC Recognized)">All Government & Aided Degree Colleges (UGC Recognized)</option>
+              <option value="All Recognized Secondary & Senior Secondary Schools (CBSE / State Boards)">All Recognized Secondary & Senior Secondary Schools (CBSE / State Boards)</option>
+              <option value="All Medical, Dental, Nursing & Healthcare Colleges">All Medical, Dental, Nursing & Healthcare Colleges</option>
+              <option value="All Polytechnic & ITI Vocational Training Institutes">All Polytechnic & ITI Vocational Training Institutes</option>
+            </select>
+          </div>
+
+          <!-- Education Level: Spanning from 10th standard up to PhD and Overseas -->
+          <div class="form-group">
+            <label for="educationLevel" class="form-label">
+              <span>Current Education Stage</span>
+              <span class="form-label-hint">*Required</span>
+            </label>
+            <select id="educationLevel" class="form-control" required>
+              <option value="Class 10 (Secondary / Pre-Matric)">Class 10 (Secondary / Pre-Matric)</option>
+              <option value="Class 11-12 (Higher Secondary / PUC)">Class 11-12 (Higher Secondary / PUC)</option>
+              <option value="ITI / Vocational">ITI / Vocational</option>
+              <option value="Diploma / Polytechnic">Diploma / Polytechnic</option>
+              <option value="Undergraduate (Degree / B.Tech / MBBS / B.Sc / B.Com / BA)" selected>Undergraduate (Degree / B.Tech / MBBS / B.Sc / B.Com / BA)</option>
+              <option value="Postgraduate (Master's / M.Tech / MD / M.Sc / MBA / MA)">Postgraduate (Master's / M.Tech / MD / M.Sc / MBA / MA)</option>
+              <option value="PhD / Doctoral Research">PhD / Doctoral Research</option>
+              <option value="Study Abroad / National Overseas">Study Abroad / National Overseas</option>
+            </select>
+          </div>
+
+          <!-- Course Stream -->
+          <div class="form-group">
+            <label for="stream" class="form-label">Course Stream / Discipline</label>
+            <select id="stream" class="form-control" required>
+              <option value="Any">Any / General</option>
+              <option value="Engineering" selected>Engineering</option>
+              <option value="Medical">Medical / Healthcare / MBBS / BDS</option>
+              <option value="Science">Basic Sciences (B.Sc / M.Sc / Research)</option>
+              <option value="Commerce">Commerce / Business / CA / B.Com</option>
+              <option value="Arts/Humanities">Arts / Humanities / Social Work / BA</option>
+              <option value="Law">Law (LLB / LLM)</option>
+              <option value="Technical">Technical / IT / Computer Science / MCA</option>
+              <option value="Management">Management (BBA / MBA)</option>
+            </select>
+          </div>
+
+          <!-- Academic Score / Percentage -->
+          <div class="form-group">
+            <label for="percentage" class="form-label">
+              <span>Academic Marks Percentage (%)</span>
+              <span class="form-label-hint">Last qualifying examination</span>
+            </label>
+            <input type="number" id="percentage" class="form-control" min="30" max="100" step="0.1" value="75.0" required>
+          </div>
+
+          <!-- Domicile State -->
+          <div class="form-group">
+            <label for="state" class="form-label">State of Permanent Residence (Domicile)</label>
+            <select id="state" class="form-control" required>
+              <option value="All India" selected>All India</option>
+              <option value="Karnataka">Karnataka</option>
+              <option value="Maharashtra">Maharashtra</option>
+              <option value="Tamil Nadu">Tamil Nadu</option>
+              <option value="Uttar Pradesh">Uttar Pradesh</option>
+              <option value="Kerala">Kerala</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+              <option value="Assam">Assam</option>
+              <option value="West Bengal">West Bengal</option>
+            </select>
+          </div>
+
+          <!-- Annual Family Income (Dual input: Slider + Text) -->
+          <div class="form-group full-width">
+            <div class="income-slider-wrap">
+              <div class="income-display-box">
+                <span style="font-weight: 600;" data-i18n="incomeSliderLabel">Annual Family Income:</span>
+                <span class="income-val" id="incomeFormatted">₹2,00,000</span>
+              </div>
+              <input type="range" id="familyIncomeRange" class="range-slider" min="20000" max="1500000" step="10000" value="200000" aria-label="Family Income Slider">
+              <input type="number" id="familyIncome" class="form-control" min="0" max="5000000" step="5000" value="200000" aria-label="Exact Family Income in Rupees">
+              <span class="form-label-hint">Central & state income ceilings typically fall at ₹1.5L, ₹2.5L, ₹4.5L, or ₹8.0L. Enter accurate figures.</span>
+            </div>
+          </div>
+
+          <!-- Gender -->
+          <div class="form-group">
+            <label for="gender" class="form-label">Gender</label>
+            <select id="gender" class="form-control" required>
+              <option value="Female">Female</option>
+              <option value="Male" selected>Male</option>
+              <option value="Transgender">Transgender</option>
+            </select>
+          </div>
+
+          <!-- Social Category / Caste -->
+          <div class="form-group">
+            <label for="category" class="form-label">Social Category</label>
+            <select id="category" class="form-control" required>
+              <option value="General">General (Unreserved)</option>
+              <option value="OBC">OBC (Other Backward Classes)</option>
+              <option value="SC">SC (Scheduled Caste)</option>
+              <option value="ST">ST (Scheduled Tribe)</option>
+              <option value="EWS">EWS (Economically Weaker Section)</option>
+            </select>
+          </div>
+
+          <!-- Religion / Minority -->
+          <div class="form-group">
+            <label for="religion" class="form-label">Religious Minority Status</label>
+            <select id="religion" class="form-control" required>
+              <option value="Hindu" selected>Hindu</option>
+              <option value="Muslim">Muslim</option>
+              <option value="Christian">Christian</option>
+              <option value="Sikh">Sikh</option>
+              <option value="Buddhist">Buddhist</option>
+              <option value="Jain">Jain</option>
+              <option value="Parsi">Parsi</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <!-- Special Criteria Checkbox Toggles -->
+          <div class="form-group full-width">
+            <label class="form-label">Special Reservation & Eligibility Flags</label>
+            <div class="criteria-toggles">
+
+              <!-- PwD Flag -->
+              <label class="checkbox-card" for="isPwd">
+                <input type="checkbox" id="isPwd">
+                <div class="checkbox-card-info">
+                  <span class="checkbox-card-title">♿ Person with Disability (PwD)</span>
+                  <span class="checkbox-card-sub">Diff-abled student with certified disability</span>
+                </div>
+              </label>
+
+              <!-- Single Girl Child -->
+              <label class="checkbox-card" for="isSingleGirlChild">
+                <input type="checkbox" id="isSingleGirlChild">
+                <div class="checkbox-card-info">
+                  <span class="checkbox-card-title">👧 Single Girl Child</span>
+                  <span class="checkbox-card-sub">Only daughter in family without brother</span>
+                </div>
+              </label>
+
+              <!-- Ward of Defense / Police -->
+              <label class="checkbox-card" for="isWardOfDefense">
+                <input type="checkbox" id="isWardOfDefense">
+                <div class="checkbox-card-info">
+                  <span class="checkbox-card-title">🎖️ Armed Forces / Police Ward</span>
+                  <span class="checkbox-card-sub">Dependent of defense/paramilitary personnel</span>
+                </div>
+              </label>
+
+              <!-- Rural Background -->
+              <label class="checkbox-card" for="isRural">
+                <input type="checkbox" id="isRural">
+                <div class="checkbox-card-info">
+                  <span class="checkbox-card-title">🏡 Rural Panchayat Student</span>
+                  <span class="checkbox-card-sub">Studied in village school / first-gen scholar</span>
+                </div>
+              </label>
+
+            </div>
+          </div>
+
+          <!-- PwD Percentage (Conditional) -->
+          <div class="form-group" id="pwdPercentGroup" style="display: none;">
+            <label for="disabilityPercentage" class="form-label">Disability Percentage (%)</label>
+            <input type="number" id="disabilityPercentage" class="form-control" min="40" max="100" value="45" placeholder="e.g. 40">
+            <span class="form-label-hint">Government scholarships require minimum 40% certified disability</span>
+          </div>
+
+        </div>
+
+        <!-- Form Actions -->
+        <div class="form-actions">
+          <button type="reset" class="btn btn-secondary">Reset Form</button>
+          <button type="submit" id="matchSubmitBtn" class="btn btn-primary" style="background: var(--secondary); border-color: var(--secondary);">
+            <span>⚡</span> <span data-i18n="findButton">Run Scholarship Matchmaker</span>
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Loading Animation -->
+    <div id="loadingIndicator" class="loading-indicator" aria-live="polite">
+      <div class="spinner"></div>
+      <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;" data-i18n="findingButton">
+        Analyzing Eligibility Criteria...
+      </h3>
+      <p style="color: var(--text-muted); font-size: 0.9rem;">
+        Matching your profile against 36+ authentic central government ministries, state portals, and corporate CSR grant databases.
+      </p>
+    </div>
+
+    <!-- Results Section -->
+    <section id="resultsSection" class="results-section" aria-labelledby="resultsTitle">
+      <div class="results-header">
+        <h2 id="resultsTitle" class="results-title">
+          <span>🎯</span> <span data-i18n="eligibleTitle">Matched Scholarships</span>
+        </h2>
+        <div>
+          <button type="button" id="printReportBtn" class="btn btn-secondary" style="font-size: 0.9rem;">
+            <span>🖨️</span> <span data-i18n="printReport">Print / Export Guidance PDF</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Analytics Ribbon -->
+      <div class="analytics-grid">
+        <div class="analytics-card">
+          <div class="analytics-icon" style="background: var(--accent-success-bg); color: var(--accent-success);">
+            ✓
+          </div>
+          <div>
+            <div class="analytics-val" id="eligibleCountVal">0</div>
+            <div class="analytics-label">Eligible Scholarships</div>
+          </div>
+        </div>
+
+        <div class="analytics-card">
+          <div class="analytics-icon" style="background: var(--primary-light); color: var(--primary);">
+            ₹
+          </div>
+          <div>
+            <div class="analytics-val" id="potentialAidVal">₹0</div>
+            <div class="analytics-label">Total Potential Financial Aid</div>
+          </div>
+        </div>
+
+        <div class="analytics-card">
+          <div class="analytics-icon" style="background: var(--accent-warning-bg); color: var(--accent-warning);">
+            ★
+          </div>
+          <div>
+            <div class="analytics-val" id="topScoreVal">0%</div>
+            <div class="analytics-label">Top Match Confidence</div>
+          </div>
+        </div>
+
+        <div class="analytics-card">
+          <div class="analytics-icon" style="background: var(--bg-card-subtle); color: var(--text-muted);">
+            ≈
+          </div>
+          <div>
+            <div class="analytics-val" id="nearCountVal">0</div>
+            <div class="analytics-label">Near Matches (Borderline)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="results-tabs" role="tablist">
+        <button type="button" class="tab-btn active" data-tab="all" role="tab">
+          <span data-i18n="allEligibleTab">All Matches</span>
+          <span class="tab-badge" id="badgeAll">0</span>
+        </button>
+        <button type="button" class="tab-btn" data-tab="likely" role="tab">
+          <span data-i18n="highlyLikelyTab">Highly Likely (>=80%)</span>
+          <span class="tab-badge" id="badgeHighlyLikely">0</span>
+        </button>
+        <button type="button" class="tab-btn" data-tab="closing" role="tab">
+          <span data-i18n="closingSoonTab">Closing Soon</span>
+          <span class="tab-badge" id="badgeClosingSoon">0</span>
+        </button>
+        <button type="button" class="tab-btn" data-tab="near" role="tab">
+          <span data-i18n="nearMatchTab">Near Matches</span>
+          <span class="tab-badge" id="badgeNear">0</span>
+        </button>
+        <button type="button" class="tab-btn" data-tab="directory" role="tab">
+          <span data-i18n="allDirectoryTab">Browse All Directory</span>
+          <span class="tab-badge" id="badgeDirectory">0</span>
+        </button>
+      </div>
+
+      <!-- In-Results Filter & Search Bar -->
+      <div class="results-filter-bar">
+        <div class="search-input-wrap">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="resultsSearchInput" class="form-control" placeholder="Search by scheme name or keywords..." aria-label="Search within results">
+        </div>
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <label for="resultsTypeFilter" style="font-size: 0.85rem; font-weight: 600;">Provider:</label>
+          <select id="resultsTypeFilter" class="form-control" style="width: auto; padding: 0.4rem 0.8rem;">
+            <option value="All">All Providers</option>
+            <option value="Central Government">Central Government</option>
+            <option value="State Government">State Government</option>
+            <option value="Corporate CSR">Corporate CSR</option>
+            <option value="Private Trust">Private Trust</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Scheme Cards Grid -->
+      <div class="schemes-grid" id="schemesGrid" aria-live="polite">
+        <!-- Dynamically injected scheme cards -->
+      </div>
+    </section>
+
+    <!-- Extra Useful Information: Help Guide, DigiLocker & FAQs -->
+    <section class="info-section" id="infoSection" aria-labelledby="infoHeading">
+      <div style="text-align: center; margin-bottom: 1.5rem;">
+        <h2 id="infoHeading" style="font-size: 1.75rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--primary);">
+          💡 Essential Student Guidance & Verification Hub
+        </h2>
+        <p style="color: var(--text-muted); max-width: 680px; margin: 0 auto;">
+          Critical steps to ensure your scholarship gets approved without rejection, plus official helpline contacts.
+        </p>
+      </div>
+
+      <div class="info-cards-grid">
+        <!-- Card 1: DigiLocker & NPCI Seeding (Top Reason for Rejections) -->
+        <div class="info-card">
+          <div class="info-card-header">
+            <div class="info-card-icon">🔐</div>
+            <div>
+              <div class="info-card-title">Aadhaar-NPCI Bank Seeding</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">#1 Reason for Scholarship Failure</div>
+            </div>
+          </div>
+          <p style="font-size: 0.88rem; color: var(--text-main); margin-bottom: 0.75rem;">
+            Having your Aadhaar linked to a bank is <strong>not enough</strong>. Your account must be active on the <strong>NPCI (National Payments Corporation of India) Aadhaar Mapper</strong> for Direct Benefit Transfer (DBT).
+          </p>
+          <div style="background: var(--bg-card-subtle); padding: 0.75rem; border-radius: var(--radius-sm); font-size: 0.82rem; margin-bottom: 0.75rem;">
+            <strong>How to verify:</strong> Visit <em>resident.uidai.gov.in/bank-mapper</em> or dial <code>*99*99*1#</code> on your registered mobile to check NPCI status. If inactive, visit your bank branch and submit the "Aadhaar NPCI Mandate Form".
+          </div>
+        </div>
+
+        <!-- Card 2: Official Government Helpdesk Contacts -->
+        <div class="info-card">
+          <div class="info-card-header">
+            <div class="info-card-icon">📞</div>
+            <div>
+              <div class="info-card-title">Official Helpline Directory</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Toll-Free Portals & Emails</div>
+            </div>
+          </div>
+          <div class="help-contact-row">
+            <span><strong>NSP National Helpdesk:</strong></span>
+            <span><code>0120-6619540</code> / helpdesk@nsp.gov.in</span>
+          </div>
+          <div class="help-contact-row">
+            <span><strong>AICTE Pragati / Saksham:</strong></span>
+            <span><code>011-29581333</code> / pragati@aicte-india.org</span>
+          </div>
+          <div class="help-contact-row">
+            <span><strong>UGC Fellowship Cell:</strong></span>
+            <span><code>011-23604446</code> / ssp.ugc@nic.in</span>
+          </div>
+          <div class="help-contact-row">
+            <span><strong>Karnataka SSP Desk:</strong></span>
+            <span><code>080-35254757</code> / 1902</span>
+          </div>
+          <div class="help-contact-row">
+            <span><strong>MahaDBT Helpline:</strong></span>
+            <span><code>022-49150800</code></span>
+          </div>
+        </div>
+
+        <!-- Card 3: Frequently Asked Questions -->
+        <div class="info-card">
+          <div class="info-card-header">
+            <div class="info-card-icon">❓</div>
+            <div>
+              <div class="info-card-title">Frequently Asked Questions</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Quick Solutions & Common Queries</div>
+            </div>
+          </div>
+          <div class="faq-list">
+            <div class="faq-item">
+              <div class="faq-question">Q: Can I receive both government and private CSR scholarships?</div>
+              <div class="faq-answer">Generally yes, private CSR grants (like Reliance or HDFC) can supplement government scholarships unless the specific government notification explicitly restricts dual benefits.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">Q: How do I obtain a digital Income / Caste certificate?</div>
+              <div class="faq-answer">Apply via your state's online Seva Sindhu / MeeSeva / e-District portal or at your local Gram Panchayat Common Service Center (CSC). Ensure it contains a verifiable barcode.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question">Q: What if I have 58% marks and cutoff is 60%?</div>
+              <div class="faq-answer">Check our "Near Matches" tab. Many state government and private trust schemes relax criteria for SC/ST/PwD applicants or evaluate holistic need.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Modal for Scheme Details, Steps, and Dynamic Document Checklist -->
+  <div id="detailsModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalSchemeTitle">
+    <div class="modal-content">
+      <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="Close dialog">✕</button>
+
+      <div>
+        <h2 id="modalSchemeTitle" style="font-size: 1.4rem; font-weight: 800; margin-bottom: 0.25rem;">Scheme Title</h2>
+        <div id="modalSchemeProvider" style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Provider Agency</div>
+        <p id="modalSchemeDesc" style="font-size: 0.95rem; line-height: 1.5; color: var(--text-main); margin-bottom: 1rem;">Description</p>
+      </div>
+
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;">
+        <button type="button" class="btn-speech" id="modalSpeechBtn">
+          <span>🔊</span> <span data-i18n="readAloud">Read Aloud</span>
+        </button>
+      </div>
+
+      <!-- Dynamic Tailored Document Checklist -->
+      <div class="modal-section">
+        <div class="modal-section-title">
+          <span>📋</span> <span data-i18n="checklistTitle">Tailored Document Checklist</span>
+        </div>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+          Tick the documents you have ready. Visit your local Gram Panchayat CSC (Common Service Center) or Cyber Cafe with these verified papers:
+        </p>
+        <div id="modalChecklist" class="checklist-container">
+          <!-- Dynamic checklist rows -->
+        </div>
+      </div>
+
+      <!-- Step-by-Step Instructions -->
+      <div class="modal-section">
+        <div class="modal-section-title">
+          <span>🚀</span> <span data-i18n="stepsTitle">Step-by-Step How to Apply</span>
+        </div>
+        <div id="modalStepsList" class="steps-timeline">
+          <!-- Steps injected -->
+        </div>
+      </div>
+
+      <!-- Modal Bottom Actions -->
+      <div style="margin-top: 2rem; display: flex; justify-content: flex-end; gap: 0.75rem; flex-wrap: wrap;">
+        <button type="button" id="modalApplyCollegeBtn" class="btn btn-primary" style="font-size: 0.95rem; background: var(--secondary); border-color: var(--secondary);">
+          <span>🏛️</span> Submit Application to Institutional Nodal Officer
+        </button>
+        <a href="#" id="modalOfficialLink" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="font-size: 0.95rem;">
+          <span data-i18n="applyOfficial">Official External Portal</span> ↗
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p style="font-weight: 700; color: var(--text-main); margin-bottom: 0.5rem;">VidyaPath - National Scholarship & Government Scheme Matchmaker</p>
+      <p>Universal access across all recognized schools, colleges, polytechnics, and universities in India.</p>
+      <p style="margin-top: 0.5rem; font-size: 0.8rem;">Integrated with National Scholarship Portal (NSP), State Portals & Respected Education Departments.</p>
+    </div>
+  </footer>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>

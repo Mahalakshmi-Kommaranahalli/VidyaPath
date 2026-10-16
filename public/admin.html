@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Portal - VidyaPath Scheme Management</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+    }
+    .admin-table th, .admin-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border-color);
+      text-align: left;
+    }
+    .admin-table th {
+      background: var(--bg-card-subtle);
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .admin-table tr:hover {
+      background: var(--bg-card-subtle);
+    }
+    .action-btn-sm {
+      padding: 0.3rem 0.6rem;
+      font-size: 0.78rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      color: var(--text-main);
+    }
+    .action-btn-danger {
+      color: var(--accent-danger);
+      border-color: var(--accent-danger);
+    }
+    .action-btn-danger:hover {
+      background: var(--accent-danger-bg);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <nav class="main-nav">
+    <div class="container nav-inner">
+      <a href="/" class="brand">
+        <div class="brand-icon">⚙️</div>
+        <div>
+          <div class="brand-title">VidyaPath Admin</div>
+          <div class="brand-tagline">Scholarship Scheme Operations & Analytics</div>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="/" class="nav-link">← Student Portal</a>
+        <button type="button" class="btn btn-primary" id="openAddModalBtn" style="font-size: 0.85rem; padding: 0.5rem 1rem;">
+          + Add New Scheme
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container" style="padding-top: 2rem;">
+    <!-- Live Stats -->
+    <div class="analytics-grid" id="adminStatsGrid">
+      <div class="analytics-card">
+        <div class="analytics-icon" style="background: var(--primary-light); color: var(--primary);">📊</div>
+        <div>
+          <div class="analytics-val" id="statTotal">--</div>
+          <div class="analytics-label">Total Active Schemes</div>
+        </div>
+      </div>
+      <div class="analytics-card">
+        <div class="analytics-icon" style="background: var(--accent-success-bg); color: var(--accent-success);">🏛️</div>
+        <div>
+          <div class="analytics-val" id="statCentral">--</div>
+          <div class="analytics-label">Central Government</div>
+        </div>
+      </div>
+      <div class="analytics-card">
+        <div class="analytics-icon" style="background: var(--accent-warning-bg); color: var(--accent-warning);">🏢</div>
+        <div>
+          <div class="analytics-val" id="statState">--</div>
+          <div class="analytics-label">State Government</div>
+        </div>
+      </div>
+      <div class="analytics-card">
+        <div class="analytics-icon" style="background: var(--bg-card-subtle); color: var(--secondary);">🤝</div>
+        <div>
+          <div class="analytics-val" id="statCsr">--</div>
+          <div class="analytics-label">Corporate CSR / Trusts</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Management Card -->
+    <div class="form-card" style="margin-top: 2rem;">
+      <div class="form-header">
+        <h2 class="form-header-title">📜 Configured Scholarship Directory</h2>
+        <div class="search-input-wrap" style="max-width: 320px;">
+          <input type="text" id="adminSearchInput" class="form-control" placeholder="Search schemes...">
+        </div>
+      </div>
+
+      <div style="overflow-x: auto;">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Scheme Name</th>
+              <th>Type</th>
+              <th>Income Cap</th>
+              <th>Min %</th>
+              <th>Award</th>
+              <th>Deadline</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="adminSchemesTableBody">
+            <!-- Injected dynamically -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- Add Scheme Modal -->
+  <div id="addSchemeModal" class="modal-overlay">
+    <div class="modal-content">
+      <button type="button" class="modal-close-btn" id="closeAddModalBtn">✕</button>
+      <h2 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 1.25rem;">Add New Scholarship Scheme</h2>
+      
+      <form id="newSchemeForm">
+        <div class="form-grid">
+          <div class="form-group full-width">
+            <label class="form-label">Scheme Title</label>
+            <input type="text" id="new_name" class="form-control" required placeholder="e.g. AICTE National Tech Grant">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Provider Organization / Ministry</label>
+            <input type="text" id="new_provider" class="form-control" required placeholder="e.g. Ministry of Education">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Category Type</label>
+            <select id="new_category_type" class="form-control" required>
+              <option value="Central Government">Central Government</option>
+              <option value="State Government">State Government</option>
+              <option value="Corporate CSR">Corporate CSR</option>
+              <option value="Private Trust">Private Trust</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Award Display Text</label>
+            <input type="text" id="new_award_amount" class="form-control" required placeholder="e.g. ₹50,000 per annum">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Numeric Award Value (₹)</label>
+            <input type="number" id="new_award_amount_num" class="form-control" required value="50000">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Max Family Income Cap (₹)</label>
+            <input type="number" id="new_max_income" class="form-control" placeholder="Leave empty for unlimited">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Minimum Marks % Cutoff</label>
+            <input type="number" id="new_min_percentage" class="form-control" required value="60">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Application Deadline (YYYY-MM-DD)</label>
+            <input type="date" id="new_deadline" class="form-control" required value="2026-12-31">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Official Portal URL</label>
+            <input type="url" id="new_official_url" class="form-control" required value="https://scholarships.gov.in">
+          </div>
+          <div class="form-group full-width">
+            <label class="form-label">Description</label>
+            <textarea id="new_description" class="form-control" rows="3" required placeholder="Brief summary of scheme benefits..."></textarea>
+          </div>
+        </div>
+
+        <div class="form-actions" style="margin-top: 1.5rem;">
+          <button type="button" class="btn btn-secondary" id="cancelAddBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Scholarship Scheme</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/admin.js"></script>
+</body>
+</html>

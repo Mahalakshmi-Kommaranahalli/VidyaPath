@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>College Nodal Officer Desk - VidyaPath Verification Portal</title>
+  <meta name="description" content="Official Institutional Desk for scrutinizing, verifying, and e-attesting student scholarship applications with original documents.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .college-header-card {
+      background: linear-gradient(135deg, var(--bg-card), var(--bg-card-subtle));
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem 2rem;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .inst-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+    .doc-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-color);
+      padding: 0.2rem 0.5rem;
+      border-radius: var(--radius-full);
+      font-size: 0.72rem;
+      font-weight: 600;
+      margin-right: 0.25rem;
+      margin-bottom: 0.25rem;
+    }
+    .doc-pill.verified {
+      border-color: var(--accent-success);
+      color: var(--accent-success);
+      background: var(--accent-success-bg);
+    }
+    .app-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+      transition: all var(--transition-fast);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .app-card:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-sm);
+    }
+    .doc-inspect-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin: 1.25rem 0;
+    }
+    .doc-inspect-card {
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation with Dark Mode Toggle -->
+  <nav class="main-nav">
+    <div class="container nav-inner">
+      <a href="/college-portal.html" class="brand">
+        <div class="brand-icon">🏛️</div>
+        <div>
+          <div class="brand-title">College Nodal Officer Desk</div>
+          <div class="brand-tagline">Institutional Document Verification & E-Attestation</div>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="/" class="nav-link">Student Matchmaker</a>
+        <a href="/login.html" class="nav-link" id="logoutOfficerBtn">Logout / Switch Portal</a>
+        <button type="button" id="themeToggleBtn" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.45rem 0.85rem;">
+          🌙 Dark Mode
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container" style="padding-top: 2rem;">
+    <!-- Universal Institutional Information Header -->
+    <div class="college-header-card">
+      <div>
+        <div class="inst-badge" id="collegeAisheCode">AISHE / UDISE+ Registered</div>
+        <h1 id="collegeNameTitle" style="font-size: 1.6rem; font-weight: 900; margin: 0.35rem 0;">All Recognized Colleges & Universities</h1>
+        <div style="font-size: 0.85rem; color: var(--text-muted);" id="collegeOfficerInfo">
+          Nodal Verification Officer Desk | Nationwide Institutional Network
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 0.5rem; align-items: center;">
+        <label for="institutionSwitcher" style="font-size: 0.85rem; font-weight: 700;">Switch Institutional Desk:</label>
+        <select id="institutionSwitcher" class="form-control" style="width: auto; padding: 0.4rem 0.8rem;">
+          <!-- Dynamically populated from /api/auth/institutions -->
+        </select>
+      </div>
+    </div>
+
+    <!-- Analytics Counters -->
+    <div class="analytics-grid">
+      <div class="analytics-card">
+        <div class="analytics-icon" style="background: var(--primary-light); color: var(--primary);">📥</div>
+        <div>
+          <div class="analytics-val" id="collegeTotalApps">0</div>
+          <div class="analytics-label">Applications Received</div>
+        </div>
+      </div>
+      <div class="analytics-card">
+        <div class="analytics-icon" style="background: var(--accent-warning-bg); color: var(--accent-warning);">⏳</div>
+        <div>
+          <div class="analytics-val" id="collegePendingApps">0</div>
+          <div class="analytics-label">Pending Verification</div>
+        </div>
+      </div>
+      <div class="analytics-card">
+        <div class="analytics-icon" style="background: var(--accent-success-bg); color: var(--accent-success);">✅</div>
+        <div>
+          <div class="analytics-val" id="collegeApprovedApps">0</div>
+          <div class="analytics-label">Verified & Approved</div>
+        </div>
+      </div>
+      <div class="analytics-card">
+        <div class="analytics-icon" style="background: var(--accent-danger-bg); color: var(--accent-danger);">❌</div>
+        <div>
+          <div class="analytics-val" id="collegeRejectedApps">0</div>
+          <div class="analytics-label">Rejected / Defective</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Applications Scrutiny Section -->
+    <div class="form-card" style="margin-top: 2rem;">
+      <div class="form-header">
+        <h2 class="form-header-title">
+          <span>📜</span> Student Scholarship Applications Awaiting Attestation
+        </h2>
+        <div style="font-size: 0.85rem; color: var(--text-muted);">
+          Inspect original documents & e-attest directly to State/National Portal
+        </div>
+      </div>
+
+      <!-- Applications Container -->
+      <div id="collegeAppsContainer">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Document Inspection & E-Attestation Modal -->
+  <div id="verifyModal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalStudentTitle">
+    <div class="modal-content" style="max-width: 820px;">
+      <button type="button" class="modal-close-btn" id="modalVerifyCloseBtn">✕</button>
+
+      <div>
+        <span class="badge badge-info" id="modalAppId">Application Inspection</span>
+        <h2 id="modalStudentTitle" style="font-size: 1.4rem; font-weight: 800; margin-top: 0.35rem;">Student Application Review</h2>
+        <div id="modalSchemeApplied" style="color: var(--primary); font-weight: 700; font-size: 1rem; margin-bottom: 0.5rem;">Scholarship Details</div>
+        <div style="font-size: 0.85rem; color: var(--text-muted);" id="modalStudentMeta">Student Demographics & Academic Profile</div>
+      </div>
+
+      <!-- Original Documents Submitted -->
+      <div class="modal-section">
+        <div class="modal-section-title">
+          <span>📄</span> Original Documents Submitted & UIDAI Verification Status
+        </div>
+
+        <div class="doc-inspect-grid" id="modalDocGrid">
+          <!-- Injected dynamically -->
+        </div>
+      </div>
+
+      <!-- Officer Verification Action -->
+      <div class="modal-section">
+        <div class="modal-section-title">
+          <span>✍️</span> College Nodal Officer E-Attestation & Remarks
+        </div>
+        <div class="form-group" style="margin-bottom: 1rem;">
+          <label for="officerRemarksInput" class="form-label">Verification Remarks</label>
+          <textarea id="officerRemarksInput" class="form-control" rows="3" placeholder="Enter verification notes (e.g. Student register verified, bonafide attendance > 85%, recommended for full fees)..."></textarea>
+        </div>
+
+        <div style="display: flex; gap: 1rem; justify-content: flex-end; flex-wrap: wrap;">
+          <button type="button" class="btn btn-secondary" id="btnRejectApp" style="border-color: var(--accent-danger); color: var(--accent-danger);">
+            <span>❌</span> Reject / Defect
+          </button>
+          <button type="button" class="btn btn-primary" id="btnApproveApp">
+            <span>✅</span> E-Attest & Approve to State/NSP
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/college.js"></script>
+</body>
+</html>

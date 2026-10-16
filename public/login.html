@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Official Institutional Login Gateway - VidyaPath National Portal</title>
+  <meta name="description" content="Official National Scholarship Institutional Login Gateway for Students and Nodal Officers of All Recognized Colleges and Schools in India.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    /* Official Government Portal Login Design (Deep Navy, Sky Blue, Warm Gold, White) */
+    .official-header {
+      background: linear-gradient(90deg, #f59e0b 0%, #ffffff 50%, #0ea5e9 100%);
+      height: 4px;
+      width: 100%;
+    }
+    .login-container {
+      max-width: 980px;
+      margin: 2.5rem auto 4rem;
+      padding: 0 1rem;
+    }
+    .login-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      background: var(--bg-card);
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 12px 36px rgba(15, 39, 68, 0.12);
+      overflow: hidden;
+    }
+    .login-branding-panel {
+      background: linear-gradient(145deg, #0a192f 0%, #0f2744 60%, #173860 100%);
+      color: #ffffff;
+      padding: 2.75rem 2.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      border-right: 2px solid var(--accent-gold);
+    }
+    .emblem-box {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .emblem-icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid var(--accent-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+    }
+    .login-form-panel {
+      padding: 2.75rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--bg-card);
+    }
+    .auth-tab-group {
+      display: flex;
+      background: var(--bg-card-subtle);
+      border-radius: var(--radius-md);
+      padding: 4px;
+      margin-bottom: 1.75rem;
+      border: 1px solid var(--border-color);
+    }
+    .auth-tab-btn {
+      flex: 1;
+      padding: 0.75rem;
+      text-align: center;
+      background: transparent;
+      border: none;
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-radius: var(--radius-sm);
+      transition: all var(--transition-fast);
+    }
+    .auth-tab-btn.active {
+      background: #0f2744;
+      color: #ffffff;
+      box-shadow: var(--shadow-sm);
+    }
+    [data-theme="dark"] .auth-tab-btn.active {
+      background: #0ea5e9;
+      color: #06111f;
+    }
+    .universal-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(14, 165, 233, 0.15);
+      border: 1px solid #0ea5e9;
+      color: #38bdf8;
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    @media (max-width: 820px) {
+      .login-layout { grid-template-columns: 1fr; }
+      .login-branding-panel { padding: 2rem; border-right: none; border-bottom: 2px solid var(--accent-gold); }
+      .login-form-panel { padding: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- National Accent Border -->
+  <div class="official-header"></div>
+
+  <!-- Navigation with Dark Mode Toggle -->
+  <nav class="main-nav">
+    <div class="container nav-inner">
+      <a href="/" class="brand">
+        <div class="brand-icon">🎓</div>
+        <div>
+          <div class="brand-title">VidyaPath</div>
+          <div class="brand-tagline">National Institutional Scholarship Portal</div>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="/" class="nav-link">← Portal Home</a>
+        <button type="button" id="themeToggleBtn" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.45rem 0.85rem;">
+          🌙 Dark Mode
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Login Main Container -->
+  <main class="login-container">
+    <div class="login-layout">
+      <!-- Left Branding Panel -->
+      <div class="login-branding-panel">
+        <div>
+          <div class="emblem-box">
+            <div class="emblem-icon">🇮🇳</div>
+            <div>
+              <div style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-gold); font-weight: 800;">
+                Government of India
+              </div>
+              <div style="font-size: 1.15rem; font-weight: 800;">National Scholarship Network</div>
+            </div>
+          </div>
+
+          <div class="universal-pill">
+            <span>🌐</span> Works for ALL Colleges & Schools Nationwide
+          </div>
+
+          <h2 style="font-size: 1.6rem; font-weight: 900; line-height: 1.25; margin-bottom: 1rem;">
+            Verified Institutional Access Gateway
+          </h2>
+          <p style="font-size: 0.88rem; opacity: 0.9; line-height: 1.6; margin-bottom: 1.5rem;">
+            Students log in via their respective School, College, or Polytechnic ID. All submitted applications are routed directly to the designated Institutional Nodal Officer for electronic scrutiny, document inspection, and e-attestation.
+          </p>
+
+          <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.82rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span>✅</span> <strong>Original Document Verification</strong> (Aadhaar, Caste, Income, Photo)
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span>🔒</span> <strong>Biometric / Face-RD e-KYC</strong> Enabled
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span>🏛️</span> <strong>Real-time Institutional Nodal Desk</strong>
+            </div>
+          </div>
+        </div>
+
+        <div style="font-size: 0.78rem; opacity: 0.75; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 0.75rem;">
+          AISHE / UDISE+ Accredited Portal | Direct Benefit Transfer (DBT) Ready
+        </div>
+      </div>
+
+      <!-- Right Form Panel -->
+      <div class="login-form-panel">
+        <!-- Auth Type Tabs -->
+        <div class="auth-tab-group" role="tablist">
+          <button type="button" class="auth-tab-btn active" id="tabStudentBtn" role="tab">
+            🎓 Student Login
+          </button>
+          <button type="button" class="auth-tab-btn" id="tabOfficerBtn" role="tab">
+            🏛️ Institutional Officer Desk
+          </button>
+        </div>
+
+        <!-- Student Login Form -->
+        <form id="studentLoginForm">
+          <div style="margin-bottom: 1.25rem;">
+            <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 0.25rem;">Student Institutional Login</h3>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">Enter your registered School or College ID and Roll Number / USN</p>
+          </div>
+
+          <!-- Select Respective College/School -->
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label for="studentInstitution" class="form-label">
+              <span>Select Your College / School Category</span>
+              <span class="form-label-hint">*Required</span>
+            </label>
+            <select id="studentInstitution" class="form-control" required>
+              <option value="">-- Choose your College or School --</option>
+              <!-- Injected dynamically from /api/auth/institutions -->
+            </select>
+          </div>
+
+          <!-- Student Roll Number / USN -->
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label for="studentRollNo" class="form-label">
+              <span>Student Roll Number / USN / Admission ID</span>
+            </label>
+            <input type="text" id="studentRollNo" class="form-control" placeholder="Enter your Roll No / USN / Admission ID" required>
+          </div>
+
+          <!-- Password / PIN -->
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label for="studentPassword" class="form-label">Password / Security PIN</label>
+            <input type="password" id="studentPassword" class="form-control" placeholder="Enter your password or security PIN" required>
+          </div>
+
+          <button type="submit" id="studentLoginSubmitBtn" class="btn btn-primary" style="width: 100%; background: #0ea5e9; border-color: #0ea5e9;">
+            <span>🔐</span> Secure Student Login
+          </button>
+        </form>
+
+        <!-- College Officer Login Form (Hidden by default) -->
+        <form id="officerLoginForm" style="display: none;">
+          <div style="margin-bottom: 1.25rem;">
+            <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 0.25rem;">Institutional Nodal Officer Login</h3>
+            <p style="font-size: 0.82rem; color: var(--text-muted);">Inspect, verify, and e-attest student scholarship applications</p>
+          </div>
+
+          <!-- Select Institution -->
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label for="officerInstitution" class="form-label">Select Your Institution</label>
+            <select id="officerInstitution" class="form-control" required>
+              <option value="">-- Select Institution (AISHE / UDISE+ Code) --</option>
+            </select>
+          </div>
+
+          <!-- Officer Password -->
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label for="officerPassword" class="form-label">Officer Master Password</label>
+            <input type="password" id="officerPassword" class="form-control" placeholder="Enter officer password" required>
+          </div>
+
+          <button type="submit" id="officerLoginSubmitBtn" class="btn btn-primary" style="width: 100%; background: #0f2744; border-color: #0f2744;">
+            <span>🏛️</span> Access Institutional Verification Desk
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script src="/js/login.js"></script>
+</body>
+</html>

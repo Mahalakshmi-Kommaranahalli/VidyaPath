@@ -1,0 +1,62 @@
+[
+  {
+    "id": "INST-001",
+    "aisheCode": "AISHE-ALL-01",
+    "name": "All Recognized Colleges & Universities (AISHE Accredited)",
+    "type": "University / Degree College / Engineering",
+    "state": "All India",
+    "district": "Universal Institutional Network",
+    "nodalOfficer": "Institutional Nodal Officer",
+    "email": "nodal.verification@vidyapath.gov.in"
+  },
+  {
+    "id": "INST-002",
+    "aisheCode": "AICTE-TECH-02",
+    "name": "All AICTE Approved Technical & Engineering Institutes",
+    "type": "Technical Institute / University",
+    "state": "All India",
+    "district": "Technical Education Directorate",
+    "nodalOfficer": "Technical Nodal Officer",
+    "email": "aicte.desk@vidyapath.gov.in"
+  },
+  {
+    "id": "INST-003",
+    "aisheCode": "UGC-DEG-03",
+    "name": "All Government & Aided Degree Colleges (UGC Recognized)",
+    "type": "Arts, Science & Commerce College",
+    "state": "All India",
+    "district": "Higher Education Cell",
+    "nodalOfficer": "College Nodal Desk",
+    "email": "ugc.colleges@vidyapath.gov.in"
+  },
+  {
+    "id": "INST-004",
+    "aisheCode": "UDISE-SCH-04",
+    "name": "All Recognized Secondary & Senior Secondary Schools (CBSE / State Boards)",
+    "type": "Secondary / Higher Secondary School",
+    "state": "All India",
+    "district": "School Education Directorate",
+    "nodalOfficer": "School Principal / Nodal Incharge",
+    "email": "schools.desk@vidyapath.gov.in"
+  },
+  {
+    "id": "INST-005",
+    "aisheCode": "MED-NMC-05",
+    "name": "All Medical, Dental, Nursing & Healthcare Colleges",
+    "type": "Healthcare / Medical Institution",
+    "state": "All India",
+    "district": "Medical Education Directorate",
+    "nodalOfficer": "Dean / Scholarship Officer",
+    "email": "medical.desk@vidyapath.gov.in"
+  },
+  {
+    "id": "INST-006",
+    "aisheCode": "DGT-POLY-06",
+    "name": "All Polytechnic & ITI Vocational Training Institutes",
+    "type": "Polytechnic / ITI Institute",
+    "state": "All India",
+    "district": "Skill & Vocational Training Directorate",
+    "nodalOfficer": "Vocational Nodal Officer",
+    "email": "polytechnic.desk@vidyapath.gov.in"
+  }
+]
