@@ -5,10 +5,35 @@
 let allSchemes = [];
 
 document.addEventListener('DOMContentLoaded', () => {
+  initNavToggle();
   loadStats();
   loadSchemesTable();
   setupAdminEvents();
 });
+
+function initNavToggle() {
+  const navToggleBtn = document.getElementById('navToggleBtn');
+  const navLinks = document.getElementById('navLinks') || document.querySelector('.nav-links');
+  if (navToggleBtn && navLinks) {
+    navToggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = navLinks.classList.toggle('open');
+      navToggleBtn.classList.toggle('active', isOpen);
+      navToggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      navToggleBtn.innerHTML = isOpen ? '<span class="nav-toggle-icon">✕</span>' : '<span class="nav-toggle-icon">☰</span>';
+    });
+    document.addEventListener('click', (e) => {
+      if (!navLinks.contains(e.target) && !navToggleBtn.contains(e.target)) {
+        if (navLinks.classList.contains('open')) {
+          navLinks.classList.remove('open');
+          navToggleBtn.classList.remove('active');
+          navToggleBtn.setAttribute('aria-expanded', 'false');
+          navToggleBtn.innerHTML = '<span class="nav-toggle-icon">☰</span>';
+        }
+      }
+    });
+  }
+}
 
 async function loadStats() {
   try {

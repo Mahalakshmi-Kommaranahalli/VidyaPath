@@ -113,6 +113,12 @@ html[data-font-size="large"] { --font-base: 18px; }
 html[data-font-size="xlarge"] { --font-base: 20px; }
 
 /* Global Base */
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -126,8 +132,15 @@ body {
   color: var(--text-main);
   line-height: 1.6;
   min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
   transition: background-color var(--transition-normal), color var(--transition-normal);
   -webkit-font-smoothing: antialiased;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
 }
 
 /* Accessibility Focus Outline */
@@ -219,6 +232,37 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+}
+
+/* Mobile & Tablet Navigation Toggle Button */
+.nav-toggle-btn {
+  display: none;
+  background: var(--bg-card-subtle);
+  border: 1.5px solid var(--border-color);
+  color: var(--text-main);
+  padding: 0.45rem 0.75rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 1.25rem;
+  line-height: 1;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.nav-toggle-btn:hover,
+.nav-toggle-btn.active {
+  background: var(--primary-light);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.nav-toggle-icon {
+  display: inline-block;
+  font-weight: 800;
+  font-size: 1.25rem;
 }
 
 .brand {
@@ -1172,16 +1216,6 @@ body {
   }
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .hero-title { font-size: 1.85rem; }
-  .form-card { padding: 1.25rem; }
-  .schemes-grid { grid-template-columns: 1fr; }
-  .top-bar-inner { flex-direction: column; align-items: stretch; }
-  .accessibility-controls { justify-content: space-between; }
-  .hero-search-wrapper { flex-direction: column; border-radius: var(--radius-md); }
-  .btn-search { width: 100%; justify-content: center; border-radius: var(--radius-sm); }
-}
 
 /* ==========================================================================
    Hero Search Bar with Search Button
@@ -1499,5 +1533,795 @@ body {
 
 .help-contact-row:last-child {
   border-bottom: none;
+}
+
+/* ==========================================================================
+   Comprehensive Responsive Architecture (Mobile, Tablet, Laptop)
+   Official Portal Standards with Zero Horizontal Overflow
+   ========================================================================== */
+
+/* Keyframe for mobile dropdown animation */
+@keyframes navSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   1. LAPTOP & DESKTOP STYLES (min-width: 1025px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1025px) {
+  .nav-toggle-btn {
+    display: none !important;
+  }
+
+  .nav-links {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.85rem;
+  }
+
+  .departments-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+
+  .announcements-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  .form-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .criteria-toggles {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.85rem;
+  }
+
+  .analytics-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+
+  .schemes-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .info-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. TABLET STYLES (min-width: 641px) and (max-width: 1024px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  /* Tablet Navigation */
+  .nav-toggle-btn {
+    display: inline-flex;
+  }
+
+  .nav-inner {
+    flex-wrap: wrap;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    padding: 1rem 0 0.5rem;
+    margin-top: 0.75rem;
+    border-top: 1px solid var(--border-color);
+    animation: navSlideDown 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-link {
+    padding: 0.65rem 1rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    background: var(--primary-light);
+    color: var(--primary);
+  }
+
+  #userAuthBadge {
+    margin-top: 0.35rem;
+  }
+
+  #userAuthBadge .btn,
+  #themeToggleBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Hero Section on Tablet */
+  .hero {
+    padding: 2.5rem 0 1.75rem;
+  }
+
+  .hero-title {
+    font-size: 2.25rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+  }
+
+  .universal-notice-banner {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    border-radius: var(--radius-md);
+    padding: 0.65rem 1.25rem;
+    gap: 0.5rem;
+  }
+
+  .hero-search-wrapper {
+    max-width: 680px;
+    margin: 1.25rem auto;
+  }
+
+  /* Departments Grid on Tablet */
+  .departments-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  /* Announcements on Tablet */
+  .announcements-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  /* Form on Tablet */
+  .form-card {
+    padding: 1.75rem;
+  }
+
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .form-group.full-width {
+    grid-column: 1 / -1;
+  }
+
+  .criteria-toggles {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  /* Analytics Ribbon on Tablet */
+  .analytics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  /* Schemes Grid on Tablet */
+  .schemes-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  /* Guidance & FAQ Cards on Tablet */
+  .info-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .info-card:nth-child(3) {
+    grid-column: 1 / -1;
+  }
+
+  /* College Portal on Tablet */
+  .college-header-card {
+    padding: 1.25rem 1.5rem;
+  }
+
+  /* Modals on Tablet */
+  .modal-content {
+    max-width: 680px;
+    padding: 1.75rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. MOBILE PHONE STYLES (max-width: 640px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+  .container {
+    padding: 0 0.85rem;
+  }
+
+  /* Top National Bar */
+  .top-bar {
+    padding: 0.45rem 0;
+  }
+
+  .top-bar-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.45rem;
+    text-align: center;
+  }
+
+  .top-bar-inner > div:first-child {
+    justify-content: center;
+    font-size: 0.82rem;
+  }
+
+  .accessibility-controls {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .lang-select {
+    font-size: 0.82rem;
+    padding: 0.3rem 0.5rem;
+  }
+
+  /* Main Navigation */
+  .main-nav {
+    padding: 0.75rem 0;
+  }
+
+  .nav-inner {
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .brand {
+    gap: 0.6rem;
+  }
+
+  .brand-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    font-size: 1.2rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .brand-title {
+    font-size: 1.18rem;
+  }
+
+  .brand-tagline {
+    font-size: 0.68rem;
+    max-width: 200px;
+    line-height: 1.2;
+    white-space: normal;
+  }
+
+  .nav-toggle-btn {
+    display: inline-flex;
+    padding: 0.45rem 0.65rem;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.45rem;
+    padding: 1rem 0 0.5rem;
+    margin-top: 0.75rem;
+    border-top: 1px solid var(--border-color);
+    animation: navSlideDown 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-link {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.92rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    background: var(--primary-light);
+    color: var(--primary);
+  }
+
+  #userAuthBadge {
+    margin-top: 0.35rem;
+  }
+
+  #userAuthBadge .btn,
+  #themeToggleBtn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.65rem 1rem;
+    font-size: 0.88rem;
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: 1.75rem 0 1.25rem;
+  }
+
+  .hero-badge {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.75rem;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
+    margin-bottom: 0.85rem;
+  }
+
+  .hero-title {
+    font-size: 1.65rem;
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.92rem;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+    padding: 0 0.25rem;
+  }
+
+  .universal-notice-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: var(--radius-md);
+    padding: 0.65rem 0.85rem;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    width: 100%;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-search-wrapper {
+    flex-direction: column;
+    border-radius: var(--radius-md);
+    padding: 0.45rem;
+    gap: 0.5rem;
+    margin: 1rem 0;
+    width: 100%;
+  }
+
+  .hero-search-input {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+    font-size: 0.95rem;
+  }
+
+  .btn-search {
+    width: 100%;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    padding: 0.75rem 1rem;
+    font-size: 0.92rem;
+  }
+
+  /* Departments Ribbon */
+  .departments-section {
+    margin-bottom: 2rem;
+  }
+
+  .departments-title {
+    font-size: 1.15rem;
+  }
+
+  .departments-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .department-card {
+    padding: 0.85rem 1rem;
+    gap: 0.85rem;
+  }
+
+  .dept-emblem-wrap {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+  }
+
+  .dept-hindi {
+    font-size: 0.7rem;
+  }
+
+  .dept-english {
+    font-size: 0.85rem;
+  }
+
+  /* Announcements */
+  .announcements-container {
+    padding: 1rem 0.85rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 2rem;
+  }
+
+  .announcements-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .announcements-title {
+    font-size: 1.1rem;
+  }
+
+  .announcements-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .announcement-card {
+    padding: 1rem;
+    gap: 0.65rem;
+  }
+
+  .announcement-title {
+    font-size: 0.95rem;
+  }
+
+  .announcement-summary {
+    font-size: 0.82rem;
+  }
+
+  .announcement-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
+  /* Profile Form */
+  .form-card {
+    padding: 1.25rem 0.85rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 2rem;
+  }
+
+  .form-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .form-header-title {
+    font-size: 1.15rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .form-group.full-width {
+    grid-column: 1;
+  }
+
+  .form-label {
+    font-size: 0.85rem;
+  }
+
+  .form-control {
+    font-size: 16px; /* Prevents auto-zoom on mobile browsers */
+    padding: 0.65rem 0.85rem;
+  }
+
+  .income-display-box {
+    padding: 0.45rem 0.65rem;
+    font-size: 0.85rem;
+  }
+
+  .income-val {
+    font-size: 1rem;
+  }
+
+  .criteria-toggles {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+
+  .checkbox-card {
+    padding: 0.75rem;
+    min-height: 48px;
+  }
+
+  .form-actions {
+    margin-top: 1.5rem;
+    flex-direction: column-reverse;
+    gap: 0.65rem;
+  }
+
+  .form-actions .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+  }
+
+  /* Analytics Ribbon */
+  .analytics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.55rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .analytics-card {
+    padding: 0.75rem 0.55rem;
+    gap: 0.5rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .analytics-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    font-size: 1.1rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .analytics-val {
+    font-size: 1.15rem;
+  }
+
+  .analytics-label {
+    font-size: 0.68rem;
+    line-height: 1.2;
+  }
+
+  /* Results Header & Tabs */
+  .results-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    text-align: center;
+  }
+
+  .results-title {
+    font-size: 1.35rem;
+    justify-content: center;
+  }
+
+  #printReportBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .results-tabs {
+    gap: 0.35rem;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tab-btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.82rem;
+  }
+
+  .results-filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+    padding: 0.75rem;
+  }
+
+  .search-input-wrap {
+    min-width: 100%;
+    width: 100%;
+  }
+
+  .results-filter-bar > div:last-child {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.35rem;
+    width: 100%;
+  }
+
+  .results-filter-bar select {
+    width: 100% !important;
+  }
+
+  /* Schemes Grid */
+  .schemes-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .scheme-card {
+    padding: 1.15rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .card-title {
+    font-size: 1.05rem;
+  }
+
+  .card-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .card-actions .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.65rem 1rem;
+    font-size: 0.88rem;
+  }
+
+  /* Info Guidance & FAQs */
+  .info-section {
+    margin-top: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .info-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .info-card {
+    padding: 1.15rem;
+    border-radius: var(--radius-md);
+  }
+
+  .help-contact-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    font-size: 0.82rem;
+    word-break: break-all;
+  }
+
+  /* Modals */
+  .modal-overlay {
+    padding: 0.5rem;
+  }
+
+  .modal-content {
+    padding: 1.25rem 0.85rem;
+    border-radius: var(--radius-md);
+    max-height: 94vh;
+    width: 100%;
+  }
+
+  .modal-close-btn {
+    top: 0.65rem;
+    right: 0.65rem;
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+
+  .modal-content h2 {
+    font-size: 1.18rem;
+    padding-right: 2rem;
+  }
+
+  .modal-content div[style*="justify-content: flex-end"] {
+    flex-direction: column;
+    gap: 0.5rem !important;
+  }
+
+  .modal-content div[style*="justify-content: flex-end"] .btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* College Portal Responsive */
+  .college-header-card {
+    padding: 1rem 0.85rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
+    border-radius: var(--radius-md);
+  }
+
+  .college-header-card > div:last-child {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  #institutionSwitcher {
+    width: 100% !important;
+  }
+
+  .doc-inspect-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  /* Login Portal Responsive */
+  .login-container {
+    margin: 1.5rem auto 2.5rem;
+    padding: 0 0.5rem;
+  }
+
+  .login-layout {
+    grid-template-columns: 1fr;
+    border-radius: var(--radius-md);
+  }
+
+  .login-branding-panel {
+    padding: 1.5rem 1.25rem;
+    border-right: none;
+    border-bottom: 2px solid var(--accent-gold);
+  }
+
+  .emblem-box {
+    margin-bottom: 1.25rem;
+  }
+
+  .login-form-panel {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .auth-tab-btn {
+    padding: 0.6rem 0.4rem;
+    font-size: 0.85rem;
+  }
+
+  /* Admin Portal Responsive */
+  .admin-table th,
+  .admin-table td {
+    padding: 0.65rem 0.6rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. EXTRA NARROW PHONES (max-width: 380px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 380px) {
+  .hero-title {
+    font-size: 1.45rem;
+  }
+
+  .brand-tagline {
+    display: none;
+  }
+
+  .analytics-grid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .btn {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.88rem;
+  }
 }
 

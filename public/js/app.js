@@ -280,6 +280,41 @@ function populateSelect(elemId, items) {
 
 // Setup Event Listeners
 function setupEventListeners() {
+  // Mobile Navigation Menu Toggle
+  const navToggleBtn = document.getElementById('navToggleBtn');
+  const navLinks = document.getElementById('navLinks') || document.querySelector('.nav-links');
+  if (navToggleBtn && navLinks) {
+    navToggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = navLinks.classList.toggle('open');
+      navToggleBtn.classList.toggle('active', isOpen);
+      navToggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      navToggleBtn.innerHTML = isOpen ? '<span class="nav-toggle-icon">✕</span>' : '<span class="nav-toggle-icon">☰</span>';
+    });
+
+    // Close when clicking any nav link
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggleBtn.classList.remove('active');
+        navToggleBtn.setAttribute('aria-expanded', 'false');
+        navToggleBtn.innerHTML = '<span class="nav-toggle-icon">☰</span>';
+      });
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!navLinks.contains(e.target) && !navToggleBtn.contains(e.target)) {
+        if (navLinks.classList.contains('open')) {
+          navLinks.classList.remove('open');
+          navToggleBtn.classList.remove('active');
+          navToggleBtn.setAttribute('aria-expanded', 'false');
+          navToggleBtn.innerHTML = '<span class="nav-toggle-icon">☰</span>';
+        }
+      }
+    });
+  }
+
   // Global Search Bar with Search Button
   const globalSearchBtn = document.getElementById('globalSearchBtn');
   const globalSearchInput = document.getElementById('globalSearchInput');
