@@ -42,7 +42,7 @@ app.use((req, res) => {
 
 // Start server if directly executed
 if (require.main === module) {
-  app.listen(PORT, () => {
+  app.listen(PORT, '0.0.0.0', () => {
     console.log(`=======================================================`);
     console.log(`🎓 VidyaPath - Scholarship Matchmaker is running!`);
     console.log(`🌐 Local Web Portal: http://localhost:${PORT}`);
